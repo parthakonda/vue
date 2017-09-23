@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <script src="../src/vue.js"></script>
+        <style type="text/css">
+            .box{
+                display: inline-block;
+                height: 100px;
+                width: 100px;
+                box-shadow: 0px 0px 2px #d3d3d3;
+                background: #d3d3d3;
+            }
+            .box.red{
+                background-color: red;
+            }
+            .box.orange{
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="button" value="Change Color" @click="changeColor" />
+            <div class="box" :class="{'red':changed, 'orange': !changed}"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
