@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <script src="../src/vue.js"></script>
+        <style type="text/css">
+            .post{
+                display: block;
+                width: 60%;
+                margin: auto;
+                border-top: 2px solid orangered;
+                box-shadow: 0px 0px 2px #d3d3d3;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .author, .posted_date{
+                color: silver;
+                float: right;
+            }
+            .post-comments{
+                border: 1px solid #d3d3d3;
+                padding: 20px;
+            }
+            .post-comment{
+                border-bottom: 1px solid orangered;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <h1>
+                <center>
+                    Blog Posts
+                </center>
+            </h1>
+            <template v-for="post in posts">
+                <div class="post">
+                    <h3>{{ post.title }}</h3>
+                    <div>
+                        <span class="author">{{ post.author }}</span>
+                        <span class="posted_date">{{ post.posted_on }}</span>
+                    </div>
+                    <p class="post-content">
+                        {{ post.body }}
+                    </p>
+                    <div class="post-comments">
+                        <h3>Comments</h3>
+                        <template v-for="comment in post.comments">
+                            <p class="post-comment">
+                                {{ comment.comment }} by {{ comment.by }}
+                            </p>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
